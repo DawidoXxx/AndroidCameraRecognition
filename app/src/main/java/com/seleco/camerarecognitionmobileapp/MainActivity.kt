@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.seleco.camerarecognitionmobileapp.fragments.MqttConnectorFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val fragmentMqttConnector = MqttConnectorFragment()
         val sharedPreferences = getSharedPreferences("loginSettings", MODE_PRIVATE)
         var edit = sharedPreferences.edit()
 
@@ -21,7 +23,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(loginIntent)
         }
 
-        
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_layout,fragmentMqttConnector).commit()
 
+    }
+
+    override fun onBackPressed() {
+        moveTaskToBack(true)
     }
 }

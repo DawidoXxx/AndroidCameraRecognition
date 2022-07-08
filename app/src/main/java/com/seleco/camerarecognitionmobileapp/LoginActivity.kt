@@ -21,8 +21,8 @@ class LoginActivity : AppCompatActivity() {
         //if its go to main activity
         //if not tell user that he get it wrong
         loginBtn.setOnClickListener{
-            val name = userNameBtn.text
-            val pass = userPasswordBtn.text
+            val name = userNameBtn.text.toString()
+            val pass = userPasswordBtn.text.toString()
             if (name.equals("seleco")&&pass.equals("camera")){
                 val sharedPreferences =getSharedPreferences("loginSettings", MODE_PRIVATE)
                 sharedPreferences.edit {
