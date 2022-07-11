@@ -26,7 +26,8 @@ class MQTTClient(context:Context?,serverURI:String,clientID:String = "") {
         }
 
         override fun messageArrived(topic: String?, message: MqttMessage?) {
-            Log.d(this.javaClass.name,"Message arrived: ${message.toString()} from topic: ${topic}")
+            Log.d(this.javaClass.name,"Message arrived: ${message.toString()} from topic: $topic")
+
         }
 
         override fun deliveryComplete(token: IMqttDeliveryToken?) {

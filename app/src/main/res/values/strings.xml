@@ -10,9 +10,12 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="login_name">"User name"</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="server_uri">Server URI</string>
     <string name="user_name">Login</string>
     <string name="password">Password</string>
+    <string name="topic">Topic</string>
+    <string name="defaultUrl">tcp://192.168.10.13:1888</string>
+    <string name="defaultTopic">camera/nr1</string>
+    <string name="defaultLogin">seleco</string>
+    <string name="defaultPassword">camera</string>
 </resources>
