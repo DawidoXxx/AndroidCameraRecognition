@@ -15,7 +15,7 @@
     <string name="password">Password</string>
     <string name="topic">Topic</string>
     <string name="defaultUrl">tcp://192.168.10.13:1888</string>
-    <string name="defaultTopic">camera/nr1</string>
-    <string name="defaultLogin">seleco</string>
-    <string name="defaultPassword">camera</string>
+    <string name="defaultTopic">camera/cam12</string>
+    <string name="defaultLogin">selecocam</string>
+    <string name="defaultPassword">sel96mie4</string>
 </resources>

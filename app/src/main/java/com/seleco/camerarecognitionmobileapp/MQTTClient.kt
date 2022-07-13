@@ -7,7 +7,7 @@ import org.eclipse.paho.client.mqttv3.*
 
 class MQTTClient(context:Context?,serverURI:String,clientID:String = "") {
 
-    private val mqttClient = MqttAndroidClient(context,serverURI,clientID)
+    private var mqttClient = MqttAndroidClient(context,serverURI,clientID)
 
     //Default listeners
     private val defaultCbConnect = object : IMqttActionListener {

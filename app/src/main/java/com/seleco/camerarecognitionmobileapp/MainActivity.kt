@@ -9,6 +9,11 @@ import com.seleco.camerarecognitionmobileapp.fragments.MqttConnectorFragment
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var serverUrl:String
+    private lateinit var topic:String
+    private lateinit var userName:String
+    private lateinit var password:String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,4 +36,5 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         moveTaskToBack(true)
     }
+
 }
