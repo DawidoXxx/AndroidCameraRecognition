@@ -6,22 +6,28 @@ import android.os.Bundle
 import android.webkit.WebView
 
 //Activity for opening web page with received url
-class WebViewActivity() : AppCompatActivity() {
+class WebViewActivity : AppCompatActivity() {
 
-    lateinit var url: String
+    lateinit var urlToPicture: String
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
 
+        urlToPicture = intent.getStringExtra("url").toString()
         val webView: WebView = findViewById(R.id.webview)
         webView.apply {
-            loadUrl("https://www.google.com/")
+
+            urlToPicture?.let { loadUrl(it)}
             settings.javaScriptEnabled = true
             //settings.safeBrowsingEnabled = true
         }
 
 
+    }
+
+    override fun onBackPressed() {
+        moveTaskToBack(true)
     }
 }

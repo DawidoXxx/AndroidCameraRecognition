@@ -27,7 +27,7 @@
             android:textSize="20sp"
             android:layout_margin="12dp"
             android:ems="10"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:hint="@string/topic" />
 
         <EditText

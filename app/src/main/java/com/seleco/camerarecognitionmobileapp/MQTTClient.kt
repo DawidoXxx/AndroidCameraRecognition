@@ -2,10 +2,15 @@ package com.seleco.camerarecognitionmobileapp
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
 
-class MQTTClient(context:Context?,serverURI:String,clientID:String = "") {
+class MQTTClient(context:Context?,serverURI:String,clientID:String = "") : LifecycleObserver{
+
 
     private var mqttClient = MqttAndroidClient(context,serverURI,clientID)
 
@@ -83,6 +88,9 @@ class MQTTClient(context:Context?,serverURI:String,clientID:String = "") {
         val options = MqttConnectOptions()
         options.userName = username
         options.password = password.toCharArray()
+        options.connectionTimeout = 200
+        options.keepAliveInterval = 200
+
 
         try {
             mqttClient.connect(options,null,cbConnect)
@@ -127,6 +135,17 @@ class MQTTClient(context:Context?,serverURI:String,clientID:String = "") {
         } catch (e:MqttException){
             e.printStackTrace()
         }
+    }
+
+    //Part of Lifecycle observer mechanism to get awarness of this activity about it state
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun initializeSomething(){
+        Log.d(this.javaClass.name,"Im alive at resume event")
+    }
+
+    public fun releaseResources(){
+        mqttClient.unregisterResources()
+        mqttClient.close()
     }
 
 }
